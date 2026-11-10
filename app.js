@@ -81,12 +81,11 @@ app.get('/product/:id', (req, res) => {
 
   // no match - send a 404 page instead
   if (!product) {
-    const head = { title: 'Product not found' };
+    const head = { title: 'Product not found', message: "This product was not found."};  
     return res.status(404).render('404', { head });
   }
 
- // const state = { shop: true };
- const state = {}
+  const state = {}
   const head = { title: product.name };
   res.render('product', { state, head, product });
 });
